@@ -55,8 +55,8 @@ f.additionalLinks = ''
     <div id="updateInfo"></div><script>document.getElementById('updateInfo').innerHTML = g.updated</script>
     </div>
 
-    <p>This article gently introduces the concepts behind some basic terminology you will encounter when reading other articles that deal with time zones and handling of dates and times on the Web.</p>
-    <p>The document <a href="https://www.w3.org/TR/timezone/">Working with Time Zones</a> provides greater detail on each of these topics, as well as guidelines on handling of times and dates on the Web. Read that for a more in-depth treatment.</p>
+    <p>本文主要介绍一些有关于时区和处理Web上的日期时间的术语和概念，这些概念在您阅读其他文章时可能遇到。TODO</p>
+    <p><a href="https://www.w3.org/TR/timezone/">《时区使用》</a> 的文档中，提供了有关每个主题的更多详细信息和web上处理时间日期的指南。深入了解可以阅读此文</p>
 </section>
   
  
@@ -65,33 +65,33 @@ f.additionalLinks = ''
   
   <section id="utc">
   <h2>UTC</h2>
-  <p><dfn id="def_utc">UTC</dfn> is also known as GMT (Greenwich Mean Time). There are some subtle differences between the two, but none that  the average person would notice.</p>
-  <p>Universal Coordinated Time (UTC) is the basis for modern timekeeping. Among other things, it provides a common baseline for converting between <a href="#incremental_time" class="termref">incremental</a> and <a href="#local_time" class="termref">local</a> time. </p>
-  <p>The time zone offset for UTC is 0. UTC is often indicated in <a href="#field_based_time" class="termref">field-based formats</a> using <code class="kw" translate="no">Z</code>.</p>
+  <p><dfn id="def_utc">UTC</dfn> 也被称为GMT（Greenwich Mean Time 格林威治标准时间的缩写）。两者之间存在细微差异，但通常可以忽略。</p>
+  <p>UTC（Universal Coordinated Time 协调世界时的缩写）是现代计时的基础。除此之外，它还提供了<a href="#incremental_time" class="termref">增量时间</a> 和 <a href="#local_time" class="termref">本地时间</a> 之间的转换功能。 </p>
+  <p>UTC的时区偏移量为0. UTC 通常使用<code class="kw" translate="no">Z</code>以<a href="#field_based_time" class="termref">基于字段的格式</a>。</p>
   </section>
   
   
   <section id="field_based_time">
-  <h2>Field-based time formats</h2>
-  <p>When you write a time using a <dfn id="def_field_based_format">field-based format</dfn> you divide the date and/or time into separate field values such as year, month, day, hour, minute, second, etc. such as <samp>2016-09-11T06:10:32</samp>. Contrast this with an alternative way to express the same time, <samp>1465621816590</samp>, which is not field-based and is rather hard to read.</p>
-  <p>Field-based times may or may not be tied to either <a href="#utc" class="termref">UTC</a> or the local time zone – or they may be indeterminate. Field-based times are also typically tied to a specific calendar (such as the Gregorian calendar). </p>
-  <p>The formats described by the ISO 8601 standard are field-based.</p>
+  <h2>基于字段的时间格式 - 时间string</h2>
+  <p>当您使用<dfn id="def_field_based_format">基于字段的格式</dfn> 编写时间时，您将日期与时间划分为独立的字段，比如年、月、日、时、分、秒等，形如<samp>2016-09-11T06:10:32</samp>. 与另一种非基于字段的表示方法时间方法对比，<samp>1465621816590</samp>表示同样的时间, 易读性比较差</p>
+  <p>基于字段的时间表示与 <a href="#utc" class="termref">UTC</a>或本地时间并没有强关联。 基于字段的时间通常也与特定的日历（例如公历）相关联。 </p>
+  <p>ISO 8601 标准描述的格式是就是基于字段的。</p>
   </section>
 
 
   <section id="incremental_time">
-  <h2>Incremental time</h2>
-  <p><dfn id="def_incremental_time">Incremental time</dfn> is a way of representing time in computers that is based on a  progression of fixed integer units that increase monotonically from a specific point in time (called the &quot;epoch&quot;). </p>
-  <p> Java (and many other systems) count time as the number of milliseconds since midnight (00:00 a.m.) on January 1, 1970 in <a href="#utc" class="termref">UTC</a> (less all of the intervening leap seconds). Other systems use different units and/or epochs. </p>
-  <p>For example, at one point while writing this paragraph the incremental time for JavaScript in my browser was <samp>1465621816590</samp> (ie. 11 June, 2016 at 6.10am BST).</p>
-  <p>Most programming languages and operating environments provide or use incremental time for working with time values. However, incremental time is not usually seen directly by users, but is typically mapped to a <a href="#field_based_time" class="termref">field-based time format</a> for interchange or  for human consumption.</p>
+  <h2>增量时间 - 时间戳 </h2>
+  <p><dfn id="def_incremental_time">增量时间</dfn>是一种在计算机中表示时间的方式，它基于从特定时间点（称为“纪元”）单调增加的固定整数单位的进展。 </p>
+  <p> Java（和许多其他系统）计时方式为，自 <a href="#utc" class="termref">UTC</a>1970年1月1日午夜（00:00 a.m.）以来的毫秒数（减去所有中间的闰秒）之和。其他系统使用不同的单位和纪元。</p>
+  <p>例如，在编写本段时，我的浏览器中 JavaScript 的增量时间是  <samp>1465621816590</samp>（即 2016 年 6 月 11 日上午 6 点 BST）。 </p>
+  <p>大多数编程语言和操作环境提供或使用增量时间来解决时间问题。但是，用户通常不会看到增量时间,他通常转换为 <a href="#field_based_time" class="termref">基于字段的时间格式</a>方便人们使用</p>
 </section>
 
   
   <section id="local_time">
-  <h2>Wall/local time</h2>
+  <h2>墙上时钟/当地时间</h2>
   <div class="sidenoteGroup">
-  <p> <dfn id="def_wall_time">Wall time</dfn> or <dfn id="def_local_time">local time</dfn> is a  moment in time, that can be mapped to a specific point in incremental time if you apply any relevant time zone information, but it corresponds to what a person would recognise the time to be if they looked at a clock and/or calendar mounted on a wall in a particular place.</p>
+  <p> <dfn id="def_wall_time">墙上时钟</dfn> 或者 <dfn id="def_local_time">本地时间</dfn> 是一个时刻, that can be mapped to a specific point in incremental time if you apply any relevant time zone information, but it corresponds to what a person would recognise the time to be if they looked at a clock and/or calendar mounted on a wall in a particular place.</p>
   <aside class="sideinfonote">
   <p class="info">The use of the word <span class="qterm">local</span> in HTML doesn't refer to wall time  – instead a time described as <code class="kw" translate="no">datetime-local</code> is really a <a href="#floating_time" class="termref">floating time</a>.</p>
   </aside></div>
@@ -105,7 +105,7 @@ f.additionalLinks = ''
   
   
   <section id="floating_time">
-  <h2>Floating time</h2>
+  <h2>浮动时间</h2>
   <p>Some  time values are not mapped to a specific moment in <a href="incremental_time" class="termref">incremental time</a>. Instead, they represent a nominal time which is described in the same way in all time zones around the world.</p>
   <p>For example, Saturday 11 June 2016 happens to be the date of the British Queen's official 90th birthday. The specific time when 11th June starts or ends in Britain may actually be on Friday or Sunday in other countries, because their clocks are set differently, but the date of the event is always referred to as Saturday 11 June.  </p>
   <p>We refer to these sorts of time values as <dfn id="def_floating_time">floating times</dfn> because they are not fixed to a specific <a href="#incremental_time" class="termref">incremental time</a> value. When you apply time zone information to floating times  they produce <em>a range of acceptable incremental time values</em>.</p>
@@ -115,14 +115,14 @@ f.additionalLinks = ''
   
   
 <section id="time_zone">
-  <h2>Time zone</h2>
-  <p>A <dfn id="def_time_zone">time zone</dfn> is a set of rules for determining the local  time (wall time) as it relates to incremental time (as used in most computing systems) for a particular geographical region, and vice versa.</p>
-  <p>Time zone rules have to take into account <a href="#time_zone_offset" class="termref"> zone offsets</a> <em>plus</em> any <a href="#dst" class="termref">daylight savings</a> modifications to wall time that apply.</p>
+  <h2>时区</h2>
+  <p>A <dfn id="def_time_zone">时区</dfn> is a set of rules for determining the local  time (wall time) as it relates to incremental time (as used in most computing systems) for a particular geographical region, and vice versa.</p>
+  <p>时区规则必须考虑<a href="#time_zone_offset" class="termref">时区偏移</a><em>增减</em> 以及适用的挂钟时间的任何<a href="#dst" class="termref">夏令时</a>修改。</p>
   </section>
   
   
 <section id="zone_offset">
-  <h2> Zone offset</h2>
+  <h2>时区偏移量</h2>
   <p>A <dfn id="def_zone_offset"> zone offset</dfn> is an amount that is added to or subtracted from <a href="utc" class="termref">UTC</a> based on the location of the event around the world relative to the prime meridian. Usually offsets are at one-hour intervals, but offsets can also include other differences, such as 30 or 45 minutes.</p>
   <p>A common way to express a zone offset in field-based formats is with +/- followed by the offset. So for example, Japan is 9 hours ahead of UTC, so you may see a time written as <samp>2016-06-11 05:10+09:00</samp>.</p>
   <p>Note, importantly, that the zone offset does not help you convert times to wall time where <a href="#dst" class="termref">daylight savings time</a> is in force.</p>
@@ -130,7 +130,7 @@ f.additionalLinks = ''
   
   
  <section id="dst">
-  <h2>Daylight Saving Time</h2>
+  <h2>夏令时</h2>
   <p><dfn id="def_dst">Daylight Saving Time</dfn> (DST) or &quot;Summer Time&quot; was adopted as a way of allowing people more sunlight hours in the evening. </p>
   <p>DST varies from country to country (not to mention locality-to-locality) and often has special one-off changes to accommodate special events. Not all regions observe DST: usually those closer to the equator do not need it.</p>
   <p>In converting times it is  important to know when DST was introduced, and sometimes abandoned, for the local area, as well as on <span class="ednote">what dates DST starts and ends (which can vary from year to year)</span>. </p>
@@ -139,7 +139,7 @@ f.additionalLinks = ''
   
   
   <section id="time_zone_ids">
-  <h2>Time Zone Identifiers</h2>
+  <h2>时区标识</h2>
   <p><dfn id="def_time_zone_id">Time zone identifiers</dfn> allow you to refer to a particular difference from <a href="utc" class="termref">UTC</a> that includes both <a href="#time_zone_offset" class="termref"> zone offsets</a> and <a href="#dst" class="termref">daylight savings time</a>.</p>
   <p>The most definitive reference for identifying sets of time zone rules is the <a href="https://www.iana.org/time-zones">TZ database</a> (also known as the Olson time zone database), which is used by systems such as various commercial UNIX operating systems, Linux, Java, CLDR, ICU, and many other systems and libraries. Other systems exist: for example, Microsoft Windows uses its own data set and identifiers.</p>
   <p>In the TZ database, time zones are given IDs that typically consist of a region and exemplar city. An exemplar city is a city in the time zone in question that should be well-known to people using the time zone. For example, the U.S. Pacific time zone has a TZ database ID of <code class="kw" translate="no">America/Los_Angeles</code>. The TZ database also supplies aliases for many IDs; for example, <code class="kw" translate="no">Asia/Ulan Bator</code> is equivalent to <code class="kw" translate="no">Asia/Ulaanbaatar</code>.</p>
@@ -148,39 +148,39 @@ f.additionalLinks = ''
   
   
   <section id="calendars">
-  <h2>Gregorian and other calendars</h2>
-  <p>The <dfn id="def_gregorian_calendar">Gregorian calendar</dfn> is the most widely used way of representing civil time. It is a solar calendar, with years usually consisting of 365 days, plus the concept of a "leap year". This adds an additional day every 4 years, except when the year is evenly divisible by 100 (unless the year is also evenly divisible by 400).</p>
+  <h2>公历和其他日历</h2>
+  <p><dfn id="def_gregorian_calendar">公历</dfn> 是使用最广泛的民间时间表示 。它是太阳历, 一年通常365天，增加了“闰年”的概念。 每4年增加一天，当年份可以被100整除不用增加（如果可以被400整除，需要增加）。</p>
 
-  <p>There are numerous other calendars in use around the world, some of which are lunar calendars, some that are based on a different start date than the Gregorian calendar, and some that are reset each time a prominent person dies. Often these calendars are still used for religious purposes, but sometimes you will also find them being used in newspapers and emails, or for birth dates.</p>
-  <p>There are technologies, such as ICU or Dojo, that support conversion between different calendaring systems.</p>
+  <p>世界各地还有许多其他日历在使用，其中一些是阴历，一些基于与公历不同的开始日期，还有一些在每次名人去世时重置。通常这些日历仍用于宗教目的，但有时您也会发现它们被用于报纸和电子邮件，或用于出生日期。</p>
+  <p>ICU 或 Dojo 等技术支持不同日历系统之间的转换。</p>
   
   </section>
   
   
   <section id="html5_terms">
-  <h2>HTML5 terms</h2>
-  <p>The following show examples of field-based times for terms used in the HTML5 spec, as a handy reference.</p>
+  <h2>HTML5 条款</h2>
+  <p>下面展示了HTML5规范中，使用基于字段的时间条款的示例，以供参考。</p>
   
   <dl>
-  <dt>global date and time</dt>
-  <dd>A 6-digit date, either T or space, a 4-9 digit time (required), a time-zone offset (required) that is Z or +/-2 digits, with optional seconds</dd>
+  <dt>全球日期和时间格式</dt>
+  <dd>6位日期，T或者空格，4-9位时间（必须），使用Z或者+/-2为格式的时区偏移量（必须），可选秒</dd>
   <dd>2016-05-25T21:19:47.123+08</dd>
   <dd>2016-05-25 21:19:47-08</dd>
   <dd>2016-05-25 21:19:47Z</dd>
   <dd>2016-05-25 21:19:00.123+23:45</dd>
 
-  <dt>normalized global date and time</dt>
-  <dd>Same as above, except that T is required, 00 is omitted in the seconds field, and the time-zone offset can only be Z.</dd>
+  <dt>归一化的全球日期和时间格式</dt>
+  <dd>整体同上, 但必须用T拼接, 秒如果是00可以省略，时区偏移量必须是Z。</dd>
   <dd>2016-05-25T21:19:47.123Z</dd>
   <dd>2016-05-25T21:19Z</dd>
   
-  <dt>floating date and time</dt>
-  <dd>Same as global date and time, but no time-zone offset information</dd>
+  <dt>浮动日期和时间</dt>
+  <dd>和全球时间和日期格式一致, 没有时区偏移量信息</dd>
   <dd>2016-05-25T21:19:47.123</dd>
   <dd>2016-05-25 21:19:00</dd>
   
-  <dt>normalized floating date and time</dt>
-  <dd>Same as above, except that T is required, and 00 is omitted in the seconds field.</dd>
+  <dt>归一化的浮动日期和时间</dt>
+  <dd>整体同上, 必须使用T拼接，秒如果是00可以省略</dd>
   <dd>2016-05-25T21:19:47.123</dd>
   <dd>2016-05-25T21</dd>
   </dl>
@@ -189,21 +189,21 @@ f.additionalLinks = ''
 
 
 <section id="endlinks">
-<h2>Further reading</h2>
+<h2>更多阅读</h2>
 <aside class="section" id="survey"> </aside><script>document.getElementById('survey').innerHTML = g.survey</script>
 
 <ul id="full-links">
-  <li><p><cite><a href="https://www.w3.org/TR/timezone/">Working with Time Zones</a></cite></p></li>
+  <li><p><cite><a href="https://www.w3.org/TR/timezone/">时区使用</a></cite></p></li>
   <li>
-    <p><cite>Authoring HTML &amp; CSS</cite></p>
+    <p><cite>HTML&CSS创作</cite></p>
     <ul>
-      <li><a href="/International/techniques/authoring-html#localdata">Working with data formats</a></li>
+      <li><a href="/International/techniques/authoring-html#localdata">日期格式化</a></li>
       </ul>
   </li>
   <li>
-    <p><cite>Developing specifications</cite></p>
+    <p><cite>开发指南</cite></p>
     <ul>
-      <li><a href="/International/techniques/developing-specs#loc_time">Working with time</a></li>
+      <li><a href="/International/techniques/developing-specs#loc_time">时间使用</a></li>
     </ul>
   </li>
 </ul>
