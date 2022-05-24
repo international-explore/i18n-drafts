@@ -89,61 +89,61 @@ f.additionalLinks = ''
 
   
   <section id="local_time">
-  <h2>墙上时钟/当地时间</h2>
+  <h2>时钟时间/当地时间</h2>
   <div class="sidenoteGroup">
-  <p> <dfn id="def_wall_time">墙上时钟</dfn> 或者 <dfn id="def_local_time">本地时间</dfn> 是一个时刻, that can be mapped to a specific point in incremental time if you apply any relevant time zone information, but it corresponds to what a person would recognise the time to be if they looked at a clock and/or calendar mounted on a wall in a particular place.</p>
+  <p> <dfn id="def_wall_time">时钟时间</dfn> 或者 <dfn id="def_local_time">本地时间</dfn> 是一个时刻, 如果具备了时区信息后，则可以映射到增量时间的特定点上。但它对应于人们通过查看安装在特定地点墙上的时钟与日历时所识别的时间。</p>
   <aside class="sideinfonote">
-  <p class="info">The use of the word <span class="qterm">local</span> in HTML doesn't refer to wall time  – instead a time described as <code class="kw" translate="no">datetime-local</code> is really a <a href="#floating_time" class="termref">floating time</a>.</p>
+  <p class="info">在HTML中<span class="qterm">local</span>并不是指时钟时间  – 相反 描述为 <code class="kw" translate="no">datetime-local</code>的时间实际上是一个<a href="#floating_time" class="termref">浮动时间</a>。</p>
   </aside></div>
   <div class="sidenoteGroup">
-  <p>So, for example, while writing the previous section I may have glanced at the time displayed by my computer and seen <samp>Sat 11 Jun 06:10</samp>. If I apply knowledge about how that time relates to <a href="utc" class="termref">UTC</a> (in my case, adjusting by one hour to account for British Summer Time) I can convert that to the incremental time <samp>1465621816590</samp>.</p>
-  <p>It's also possible to convert that to a wall time in another location, such as San Francisco, where someone  looking at their computer's time display at the same time would have seen <samp>Fri 10 Jun 22:10</samp>.</p>
+  <p>所以，例如，在写上一节的时候，我可能看了一眼我的电脑显示的时间，看到了<samp>6月11日星期六 06:10</samp>。如果应用时间和 <a href="utc" class="termref">UTC</a>相关的知识 （在我的示例中，考虑到英国的夏令时，调整一小时），可以转为为增量时间<samp>1465621816590</samp>。</p>
+  <p>也可以转换为另一个区域的时钟时间, 比如在旧金山，假如有人同时看计算机的时间显示，就会看到<samp>6月10日星期五 22:10</samp>.</p>
   <aside class="sideinfonote">
-  <p class="info">The term <dfn id="def_observed_time">observed time</dfn> refers to a different method of ascertaining the time that relies on physical observation of things such as the sun, moon or stars, and is not really used these days. Observed time of noon is when the sun is at its highest point in the sky. The actual moment in time of noon indicated in this way will vary for people only a few miles apart.</p>
+  <p class="info"><dfn id="def_observed_time">观测时间</dfn>一词是指一种不同的方式来确认时间，他可以依赖于太阳，月亮或者星星等事物的物理观察，不过当前实际上不用。观测时间的中午是指太阳在空中的最高点，但实际上对于相距几公里的人来说，实际的中午时间会有所不同</p>
   </aside></div>
   </section>
   
   
   <section id="floating_time">
   <h2>浮动时间</h2>
-  <p>Some  time values are not mapped to a specific moment in <a href="incremental_time" class="termref">incremental time</a>. Instead, they represent a nominal time which is described in the same way in all time zones around the world.</p>
-  <p>For example, Saturday 11 June 2016 happens to be the date of the British Queen's official 90th birthday. The specific time when 11th June starts or ends in Britain may actually be on Friday or Sunday in other countries, because their clocks are set differently, but the date of the event is always referred to as Saturday 11 June.  </p>
-  <p>We refer to these sorts of time values as <dfn id="def_floating_time">floating times</dfn> because they are not fixed to a specific <a href="#incremental_time" class="termref">incremental time</a> value. When you apply time zone information to floating times  they produce <em>a range of acceptable incremental time values</em>.</p>
-  <p>Floating times are not attached and should never be attached to a particular time zone. </p>
-  <p>Other examples of floating time events include  the  publication date for an issue of a newspaper, the date the Rio Olympics starts, the time the New Year starts, office hours set to &quot;9 to 5&quot; regardless of <a href="#time_zone">time zone</a>, and so on.</p>
+  <p>部分时间值并不能映射到<a href="incremental_time" class="termref">增量时间</a>中的特定时刻。相反，它们代表一个名义时间，在世界各地的所有时区都以相同的方式描述。</p>
+  <p>举个例子，2016年6月11日星期六恰好是英国女王正式90岁的生日的日期。由于不同国家时钟设置的不同，6月11日在英国开始或结束的具体时间，在其他国家实际上有可能是周五或周日。但该事件的日期总是被称为6月11日星期六。</p>
+  <p>由于这种时间没有对应固定的<a href="#incremental_time" class="termref">增量时间</a>，我们通常将此类时间称为<dfn id="def_floating_time">浮动时间</dfn>。当您将时区信息应用于浮动时间时，它们会产生 <em>一系列可接受的增量时间值</em>。</p>
+  <p>浮动时间不附加，也不应附加到特定时区。</p>
+  <p>浮动时间事件的其他示例包括报纸的出版日期、里约奥运会的开始日期、新年开始的时间、办公时间设置为“9 点到 5 点”而不考虑<a href="#time_zone">time zone</a>等等。</p>
   </section>
   
   
 <section id="time_zone">
   <h2>时区</h2>
-  <p>A <dfn id="def_time_zone">时区</dfn> is a set of rules for determining the local  time (wall time) as it relates to incremental time (as used in most computing systems) for a particular geographical region, and vice versa.</p>
+  <p><dfn id="def_time_zone">时区</dfn> 是一组用于确定本地时间（时钟时间）的规则，它与特定地理区域的增量时间（在大多数计算系统中使用）有关，反之亦然。</p>
   <p>时区规则必须考虑<a href="#time_zone_offset" class="termref">时区偏移</a><em>增减</em> 以及适用的挂钟时间的任何<a href="#dst" class="termref">夏令时</a>修改。</p>
   </section>
   
   
 <section id="zone_offset">
   <h2>时区偏移量</h2>
-  <p>A <dfn id="def_zone_offset"> zone offset</dfn> is an amount that is added to or subtracted from <a href="utc" class="termref">UTC</a> based on the location of the event around the world relative to the prime meridian. Usually offsets are at one-hour intervals, but offsets can also include other differences, such as 30 or 45 minutes.</p>
-  <p>A common way to express a zone offset in field-based formats is with +/- followed by the offset. So for example, Japan is 9 hours ahead of UTC, so you may see a time written as <samp>2016-06-11 05:10+09:00</samp>.</p>
-  <p>Note, importantly, that the zone offset does not help you convert times to wall time where <a href="#dst" class="termref">daylight savings time</a> is in force.</p>
+  <p><dfn id="def_zone_offset">时区偏移量</dfn> 基于世界各地相对于本初子午线的位置，针对<a href="utc" class="termref">UTC</a>时间做增减。通常偏移量以一小时为间隔，但偏移量也可以包括其他差异，例如 30 或 45 分钟。</p>
+  <p>在基于字段的时间格式中表示区域偏移的常用方法是，使用 +/- 后跟偏移。例如，日本比UTC时间早9小时，因此您可能会看到时间写为<samp>2016-06-11 05:10+09:00</samp>。</p>
+  <p>请注意，重要的是，区域偏移不会帮助您将时间转换为<a href="#dst" class="termref">夏令时</a>生效的时钟时间。</p>
   </section>
   
-  
+
  <section id="dst">
   <h2>夏令时</h2>
-  <p><dfn id="def_dst">Daylight Saving Time</dfn> (DST) or &quot;Summer Time&quot; was adopted as a way of allowing people more sunlight hours in the evening. </p>
-  <p>DST varies from country to country (not to mention locality-to-locality) and often has special one-off changes to accommodate special events. Not all regions observe DST: usually those closer to the equator do not need it.</p>
-  <p>In converting times it is  important to know when DST was introduced, and sometimes abandoned, for the local area, as well as on <span class="ednote">what dates DST starts and ends (which can vary from year to year)</span>. </p>
-  <p>For example, Korea Standard Time and Japan Standard Time currently use the same <a href="#zone_offset" class="termref">zone offset</a> and neither uses daylight saving. However, Japan abandoned DST in 1951, while South Korea used it last in 1988, so an application that tracks time values that reach back that far might need to track these time zones separately.</p>
+  <p><dfn id="def_dst">夏令时</dfn> (DST) 或者“夏季时间”被采用，是为了让人们在晚上有更多日照时间。 </p>
+  <p>DST 因国家/地区而异（更不用说因地区而异了），并且通常会进行特殊的一次性更改以适应特殊事件。并非所有地区都遵守夏令时：通常靠近赤道的地区不需要它。</p>
+  <p>在转换时间时，重要的是要了解当地何时引入 DST，有时会放弃 DST，以及 DST 开始和结束的日期（每年可能有所不同）</p>
+  <p>例如，韩国标准时间和日本标准时间目前使用相同的<a href="#zone_offset" class="termref">时区偏移量</a>，也没有使用夏令时。 但是，日本在1951年放弃了DST，而韩国在1988年使用它，因此跟踪时间值的应用程序可能需要单独跟踪这些时区。</p>
   </section>
   
   
   <section id="time_zone_ids">
   <h2>时区标识</h2>
-  <p><dfn id="def_time_zone_id">Time zone identifiers</dfn> allow you to refer to a particular difference from <a href="utc" class="termref">UTC</a> that includes both <a href="#time_zone_offset" class="termref"> zone offsets</a> and <a href="#dst" class="termref">daylight savings time</a>.</p>
-  <p>The most definitive reference for identifying sets of time zone rules is the <a href="https://www.iana.org/time-zones">TZ database</a> (also known as the Olson time zone database), which is used by systems such as various commercial UNIX operating systems, Linux, Java, CLDR, ICU, and many other systems and libraries. Other systems exist: for example, Microsoft Windows uses its own data set and identifiers.</p>
-  <p>In the TZ database, time zones are given IDs that typically consist of a region and exemplar city. An exemplar city is a city in the time zone in question that should be well-known to people using the time zone. For example, the U.S. Pacific time zone has a TZ database ID of <code class="kw" translate="no">America/Los_Angeles</code>. The TZ database also supplies aliases for many IDs; for example, <code class="kw" translate="no">Asia/Ulan Bator</code> is equivalent to <code class="kw" translate="no">Asia/Ulaanbaatar</code>.</p>
-  <p>The Common Locale Data Repository (CLDR) can be used to provide a localized form for the IDs. Note that some systems, such as Apple's Mac OS, provide additional exemplar cities.</p>
+  <p><dfn id="def_time_zone_id">时区标识</dfn>允许您引用与 <a href="utc" class="termref">UTC</a>的特定差异，包括 <a href="#time_zone_offset" class="termref">时区便宜</a> 和<a href="#dst" class="termref">夏令时</a>。</p>
+  <p>识别时区规则集的最权威参考是 <a href="https://www.iana.org/time-zones">TZ database</a>（也称为奥尔森时区数据库）, 它被各种商业 UNIX 操作系统、Linux、Java、CLDR、ICU 和许多其他系统和库等系统使用。但也存在其他系统：例如，Microsoft Windows 使用自己的数据集和标识符。</p>
+  <p>在 TZ 数据库中，时区的 ID 通常由地区和示例城市组成。示例城市是所讨论时区中的城市，应该为使用该时区的人所熟知。例如，美国太平洋时区的 TZ 数据库 ID 为<code class="kw" translate="no">America/Los_Angeles</code>. TZ 数据库还为许多 ID 提供别名; 比如 <code class="kw" translate="no">Asia/Ulan Bator</code> 等于 <code class="kw" translate="no">Asia/Ulaanbaatar</code>.</p>
+  <p>Common Locale Data Repository (CLDR) 可用于为 ID 提供本地化形式。请注意，某些系统（例如 Apple 的 Mac OS）提供了其他示例城市。</p>
   </section>
   
   
